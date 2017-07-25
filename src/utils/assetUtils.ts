@@ -5,6 +5,26 @@ export class Loader {
     private static soundKeys: string[] = [];
     private static soundExtensionsPreference: string[] = SOUND_EXTENSIONS_PREFERENCE;
 
+    public static loadAllAssets(game: Phaser.Game, onComplete?: Function, onCompleteContext?: any) {
+        this.game = game;
+
+        if (onComplete) {
+            this.game.load.onLoadComplete.addOnce(onComplete, onCompleteContext);
+        }
+
+        this.loadImages();
+        this.loadSpritesheets();
+        // this.loadAtlases();
+        // this.loadAudio();
+        // this.loadAudiosprites();
+        // this.loadBitmapFonts();
+        // this.loadJSON();
+        // this.loadXML();
+        // this.loadText();
+        // this.loadScripts();
+        // this.loadShaders();
+    }
+
     private static loadImages() {
         for (let image in Assets.Images) {
             if (!this.game.cache.checkImageKey(Assets.Images[image].getName())) {
@@ -169,27 +189,7 @@ export class Loader {
                 this.game.load.shader(Assets.Shaders[shader].getName(), Assets.Shaders[shader].getFRAG(), true);
             }
         }
-    }
-
-    public static loadAllAssets(game: Phaser.Game, onComplete?: Function, onCompleteContext?: any) {
-        this.game = game;
-
-        if (onComplete) {
-            this.game.load.onLoadComplete.addOnce(onComplete, onCompleteContext);
-        }
-
-        this.loadImages();
-        this.loadSpritesheets();
-        this.loadAtlases();
-        this.loadAudio();
-        this.loadAudiosprites();
-        this.loadBitmapFonts();
-        this.loadJSON();
-        this.loadXML();
-        this.loadText();
-        this.loadScripts();
-        this.loadShaders();
-    }
+    }    
 
     public static waitForSoundDecoding(onComplete: Function, onCompleteContext?: any) {
         if (this.soundKeys.length > 0) {

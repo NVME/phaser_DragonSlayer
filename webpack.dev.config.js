@@ -45,7 +45,7 @@ module.exports = {
             path.join(__dirname, 'dist')
         ]),
         new HtmlWebpackPlugin({
-            title: 'DEV MODE: Phaser NPM Webpack TypeScript Starter Project!',
+            title: 'Dragon Slayer',
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],

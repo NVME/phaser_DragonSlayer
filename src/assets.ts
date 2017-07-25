@@ -3,21 +3,90 @@
 export namespace Images {
     export class ImagesBackgroundTemplate {
         static getName(): string { return 'background_template'; }
-
         static getPNG(): string { return require('assets/images/background_template.png'); }
     }
+     export class ImagesKnightThrustFront {
+        static getName(): string { return 'thrust_front'; }
+        static getPNG(): string { return require('assets/images/thrust_front.png'); }
+    }
+     export class ImagesKnightThrustLeft {
+        static getName(): string { return 'thrust_left'; }
+        static getPNG(): string { return require('assets/images/thrust_left.png'); }
+    }
+    export class ImagesKnightThrustRight {
+        static getName(): string { return 'thrust_right'; }
+        static getPNG(): string { return require('assets/images/thrust_right.png'); }
+    }
+    export class ImagesKnightThrustUp {
+        static getName(): string { return 'thrust_up'; }
+        static getPNG(): string { return require('assets/images/thrust_up.png'); }
+    }
+    export class ImagesKnightWalkFront {
+        static getName(): string { return 'walk_front'; }
+        static getPNG(): string { return require('assets/images/walk_front.png'); }
+    }
+    export class ImagesKnightWalkLeft {
+        static getName(): string { return 'walk_left'; }
+        static getPNG(): string { return require('assets/images/walk_left.png'); }
+    }
+     export class ImagesKnightWalkRight {
+        static getName(): string { return 'walk_right'; }
+        static getPNG(): string { return require('assets/images/walk_right.png'); }
+    }
+     export class ImagesKnightWalkUp {
+        static getName(): string { return 'walk_left'; }
+        static getPNG(): string { return require('assets/images/walk_up.png'); }
+    }
+
 }
 
 export namespace Spritesheets {
-    export class SpritesheetsMetalslugMummy {
-        static getName(): string { return 'metalslug_mummy'; }
-
-        static getPNG(): string { return require('assets/spritesheets/metalslug_mummy.[37,45,18,0,0].png'); }
-        static getFrameWidth(): number { return 37; }
-        static getFrameHeight(): number { return 45; }
-        static getFrameMax(): number { return 18; }
+     class SpritesheetsKnight {         
+        static getFrameWidth(): number { return 57; }
+        static getFrameHeight(): number { return 64; }
+        static getFrameMax(): number { return 8; }
         static getMargin(): number { return 0; }
         static getSpacing(): number { return 0; }
+    }
+    export class SpritesheetsKnightThrustFront extends SpritesheetsKnight{
+        static getName(): string { return 'knight_thrust_front'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_thrust_front.jpg'); } 
+    }
+     export class SpritesheetsKnightThrustLeft extends SpritesheetsKnight{
+         static getName(): string { return 'knight_thrust_left'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_thrust_left.jpg'); } 
+    }
+     export class SpritesheetsKnightThrustRight extends SpritesheetsKnight{
+         static getName(): string { return 'knight_thrust_right'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_thrust_right.jpg'); } 
+    }
+     export class SpritesheetsKnightThrustUp extends SpritesheetsKnight{
+         static getName(): string { return 'knight_thrust_up'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_thrust_up.jpg'); } 
+    }
+     export class SpritesheetsKnightWalkLeft extends SpritesheetsKnight{
+         static getName(): string { return 'knight_walk_left'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_walk_left.jpg'); } 
+    }
+     export class SpritesheetsKnightWalkFront extends SpritesheetsKnight{
+         static getName(): string { return 'knight_walk_front'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_walk_front.png'); } 
+    }
+     export class SpritesheetsKnightWalkRight extends SpritesheetsKnight{
+         static getName(): string { return 'knight_walk_right'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_walk_right.jpg'); } 
+    }
+     export class SpritesheetsKnightWalkUp extends SpritesheetsKnight{
+         static getName(): string { return 'knight_walk_up'; }
+
+        static getImg(): string { return require('assets/spritesheets/sprite_walk_up.jpg'); } 
     }
 }
 

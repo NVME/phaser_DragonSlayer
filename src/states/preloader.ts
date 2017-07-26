@@ -19,7 +19,7 @@ export default class Preloader extends Phaser.State {
         // this.preloadFrameSprite.anchor.setTo(0.5);
 
         // this.game.load.setPreloadSprite(this.preloadBarSprite);
-        AssetsMrg.KnightAssetsManager.loadAssets(this.game)
+        AssetsMrg.KnightManager.loadAssets(this.game)
         AssetUtils.Loader.loadAllAssets(this.game, this.loadGame, this);
 
     }    

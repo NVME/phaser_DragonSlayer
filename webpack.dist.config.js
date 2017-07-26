@@ -20,9 +20,9 @@ module.exports = {
         }
     },
     plugins: [
-        new WebpackShellPlugin({
-            onBuildStart: ['npm run assets']
-        }),
+        // new WebpackShellPlugin({
+        //     onBuildStart: ['npm run assets']
+        // }),
         new webpack.DefinePlugin({
             'DEBUG': false,
 

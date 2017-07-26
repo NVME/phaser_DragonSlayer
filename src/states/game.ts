@@ -1,6 +1,6 @@
 
 import * as Assets from '../assets';
-import Knight from '../sprites/knight';
+import {Knight} from '../sprites/index';
 
 export default class Game extends Phaser.State {
 
@@ -18,24 +18,24 @@ export default class Game extends Phaser.State {
         	game:this.game,
         	x:100,
         	y:100,
-        	asset:Assets.Images.ImagesKnightWalkFront.getName()
+        	direction:"front"
         });	
-          this.foe=new Knight({
+        this.foe=new Knight({
         	game:this.game,
         	x:this.game.world.centerX,
         	y:this.game.world.centerY,
-        	asset:Assets.Spritesheets.SpritesheetsKnightWalkRight.getName()
+        	direction:"right"
         });
-          this.foe.animations.add(Assets.Spritesheets.SpritesheetsKnightWalkRight.getName())
-          .play(Assets.Spritesheets.SpritesheetsKnightWalkRight.getFrameMax(),true);	
+          // this.foe.animations.add(Assets.Spritesheets.SpritesheetsKnightWalkRight.getName())
+          // .play(Assets.Spritesheets.SpritesheetsKnightWalkRight.getFrameMax(),true);	
         this.game.add.existing(this.hero);
         this.game.add.existing(this.foe);
 
  }
  
  public update():void {
- 	this.hero.walkdown();
- 	this.foe.walkright();
+ 	this.hero.walkdown(1);
+ 	this.foe.walkright(1);
  }
 
 }

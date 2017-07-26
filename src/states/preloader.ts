@@ -1,4 +1,5 @@
 import * as Assets from '../assets';
+import * as AssetsMrg from '../resources/index';
 import * as AssetUtils from '../utils/assetUtils';
 
 export default class Preloader extends Phaser.State {
@@ -18,8 +19,9 @@ export default class Preloader extends Phaser.State {
         // this.preloadFrameSprite.anchor.setTo(0.5);
 
         // this.game.load.setPreloadSprite(this.preloadBarSprite);
-
+        AssetsMrg.KnightAssetsManager.loadAssets(this.game)
         AssetUtils.Loader.loadAllAssets(this.game, this.loadGame, this);
+
     }    
 
     private loadGame(): void {

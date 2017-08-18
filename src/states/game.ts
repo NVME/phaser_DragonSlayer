@@ -10,6 +10,7 @@ export default class Game extends Phaser.State {
 
  public create(): void {
 
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
 	 	this.backgroundTemplateSprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY,
 	 															 Assets.Images.ImagesBackgroundTemplate.getName());
         this.backgroundTemplateSprite.anchor.setTo(0.5);
@@ -24,18 +25,34 @@ export default class Game extends Phaser.State {
         	game:this.game,
         	x:this.game.world.centerX,
         	y:this.game.world.centerY,
-        	direction:"right"
+        	direction:"left"
         });
           // this.foe.animations.add(Assets.Spritesheets.SpritesheetsKnightWalkRight.getName())
           // .play(Assets.Spritesheets.SpritesheetsKnightWalkRight.getFrameMax(),true);	
         this.game.add.existing(this.hero);
         this.game.add.existing(this.foe);
 
+       this.game.physics.arcade.enable(this.hero);
+       this.game.physics.arcade.enable(this.foe);
+        // this.body.bounce.set(1);
+        this.hero.body.collideWorldBounds=true;
+        this.foe.body.collideWorldBounds=true;
+       
+       //sprite.body.angularVelocity = 0;
+       //this.hero.body.moveTo(2000,1000,Phaser.ANGLE_DOWN)
+       this.hero.walk(15);
+       this.hero.turn("right");
+       this.foe.walk(20);
+
+
  }
  
  public update():void {
- 	this.hero.walkdown(1);
- 	this.foe.walkright(1);
+ 	
+     this.game.physics.arcade.collide(this.hero,this.foe);
+     //this.hero.turnTo("right");
+    // this.hero.walkright(60);
+ 	//this.foe.walkright(2);
  }
 
 }
